@@ -21,14 +21,13 @@ public class CoverShellRenderer extends GeoEntityRenderer<CoverShellEntity> {
 
     @Override
     public ResourceLocation getTextureLocation(CoverShellEntity instance) {
-        return new ResourceLocation(TurtleMagic.MOD_ID, "textures/entity/cover_shell.png");
+        return new ResourceLocation(TurtleMagic.MOD_ID, "textures/entity/turtle_shell.png");
     }
 
     @Override
     public RenderType getRenderType(CoverShellEntity animatable, float partialTick, PoseStack stack,
                                     @Nullable MultiBufferSource bufferSource, @Nullable VertexConsumer buffer,
                                     int packedLight, ResourceLocation texture) {
-        stack.scale(1.5f, 1.5f, 1.5f);
         return super.getRenderType(animatable, partialTick, stack, bufferSource, buffer, packedLight, texture);
     }
 }

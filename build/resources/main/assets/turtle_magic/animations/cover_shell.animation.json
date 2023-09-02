@@ -1,0 +1,180 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.cover_shell.spin": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"TurtleShell": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.0": {
+							"vector": [0, -360, 0]
+						}
+					}
+				},
+				"TurtleShell2": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.0": {
+							"vector": [0, -360, 0]
+						}
+					}
+				},
+				"TurtleShell3": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.0": {
+							"vector": [0, -360, 0]
+						}
+					}
+				},
+				"CoverShells": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.0": {
+							"vector": [0, 360, 0]
+						}
+					}
+				}
+			}
+		},
+		"animation.cover_shell.spin2_fast": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"TurtleShell": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.375": {
+							"vector": [0, 360, 0]
+						},
+						"0.6667": {
+							"vector": [0, 720, 0]
+						},
+						"1.0": {
+							"vector": [0, 1080, 0]
+						}
+					}
+				},
+				"TurtleShell2": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.375": {
+							"vector": [0, 360, 0]
+						},
+						"0.6667": {
+							"vector": [0, 720, 0]
+						},
+						"1.0": {
+							"vector": [0, 1080, 0]
+						}
+					}
+				},
+				"TurtleShell3": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.375": {
+							"vector": [0, 360, 0]
+						},
+						"0.6667": {
+							"vector": [0, 720, 0]
+						},
+						"1.0": {
+							"vector": [0, 1080, 0]
+						}
+					}
+				},
+				"CoverShells": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.0": {
+							"vector": [0, 360, 0]
+						}
+					}
+				}
+			}
+		},
+		"animation.cover_shell.spin2_slow": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"TurtleShell": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.375": {
+							"vector": [0, 180, 0]
+						},
+						"0.6667": {
+							"vector": [0, 360, 0]
+						},
+						"1.0": {
+							"vector": [0, 540, 0]
+						}
+					}
+				},
+				"TurtleShell2": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.375": {
+							"vector": [0, 180, 0]
+						},
+						"0.6667": {
+							"vector": [0, 360, 0]
+						},
+						"1.0": {
+							"vector": [0, 540, 0]
+						}
+					}
+				},
+				"TurtleShell3": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.375": {
+							"vector": [0, 180, 0]
+						},
+						"0.6667": {
+							"vector": [0, 360, 0]
+						},
+						"1.0": {
+							"vector": [0, 540, 0]
+						}
+					}
+				},
+				"CoverShells": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.0": {
+							"vector": [0, 360, 0]
+						}
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

@@ -15,7 +15,7 @@ public class CoverShellModel extends AnimatedGeoModel<CoverShellEntity> {
 
     @Override
     public ResourceLocation getTextureResource(CoverShellEntity object) {
-        return new ResourceLocation(TurtleMagic.MOD_ID, "textures/entity/cover_shell.png");
+        return new ResourceLocation(TurtleMagic.MOD_ID, "textures/entity/turtle_shell.png");
     }
 
     @Override
