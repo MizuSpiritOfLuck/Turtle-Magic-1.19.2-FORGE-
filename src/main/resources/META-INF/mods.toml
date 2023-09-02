@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[43,)"
+license="All rights reserved"
+
+[[mods]]
+modId="turtle_magic"
+version="${file.jarVersion}"
+displayName="Turtle Magic"
+#displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
+logoFile="turtle_magic.png"
+authors="Felix, driplock"
+description='''
+'''
+
+[[dependencies.turtle_magic]]
+    modId="forge"
+    mandatory=true
+    versionRange="[43,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.turtle_magic]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.19.2,1.20)"
+    ordering="NONE"
+    side="BOTH"

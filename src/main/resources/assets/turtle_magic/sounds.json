@@ -1,0 +1,8 @@
+{
+  "evocation_bell_ring": {
+    "subtitle": "sounds.regna_magia.evocation_bell_ring",
+    "sounds": [
+      "regna_magia:evocation_bell_ring"
+    ]
+  }
+}

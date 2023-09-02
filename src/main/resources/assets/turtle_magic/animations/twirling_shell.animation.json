@@ -1,0 +1,41 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.twirling_shell.spin": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"TurtleShell": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [0, -360, 0]
+						}
+					}
+				}
+			}
+		},
+		"animation.twirling_shell.death": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.20833,
+			"bones": {
+				"TurtleShell": {
+					"scale": {
+						"0.0": {
+							"vector": [1, 1, 1]
+						},
+						"0.125": {
+							"vector": [0.5, 0.5, 0.5]
+						},
+						"0.2083": {
+							"vector": [0, 1, 0]
+						}
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

@@ -1,0 +1,149 @@
+---- Minecraft Crash Report ----
+// This doesn't make any sense!
+
+Time: 2023-02-08 10:06:46
+Description: Ticking entity
+
+java.lang.NullPointerException: Cannot invoke "net.minecraft.world.entity.player.Player.getCooldowns()" because "this.owner" is null
+	at com.dragonforge.regna_magia.entity.custom.monster.FriendlyVexEntity.tick(FriendlyVexEntity.java:76) ~[%23188!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:658) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:457) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerLevel.lambda$tick$3(ServerLevel.java:323) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:303) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:866) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:806) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:84) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:654) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:244) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:833) [?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at com.dragonforge.regna_magia.entity.custom.monster.FriendlyVexEntity.tick(FriendlyVexEntity.java:76) ~[%23188!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:658) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:457) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerLevel.lambda$tick$3(ServerLevel.java:323) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:303) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+-- Entity being ticked --
+Details:
+	Entity Type: regna_magia:friendly_vex (com.dragonforge.regna_magia.entity.custom.monster.FriendlyVexEntity)
+	Entity ID: 55
+	Entity Name: Spirit
+	Entity's Exact location: 134.24, 83.84, 414.36
+	Entity's Block location: World: (134,83,414), Section: (at 6,3,14 in 8,5,25; chunk contains blocks 128,-64,400 to 143,319,415), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Entity's Momentum: -0.10, 0.09, -0.05
+	Entity's Passengers: []
+	Entity's Vehicle: null
+Stacktrace:
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:457) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerLevel.lambda$tick$3(ServerLevel.java:323) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:303) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:866) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:806) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:84) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:654) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:244) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:833) [?:?] {}
+
+
+-- Affected level --
+Details:
+	All players: 1 total; [ServerPlayer['Dev'/52, l='ServerLevel[World of Magic]', x=133.78, y=82.00, z=416.13]]
+	Chunk stats: 3355
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,73,0), Section: (at 0,9,0 in 0,4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 42943 game time, 19721 day time
+	Level name: World of Magic
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+	Level weather: Rain time: 124011 (now: false), thunder time: 9670 (now: false)
+	Known server brands: forge
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:866) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:806) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:84) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:654) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:244) ~[forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.jar%23183!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:833) [?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.19.2
+	Minecraft Version ID: 1.19.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.5, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 1113039352 bytes (1061 MiB) / 1891631104 bytes (1804 MiB) up to 4284481536 bytes (4086 MiB)
+	CPUs: 8
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz
+	Identifier: Intel64 Family 6 Model 42 Stepping 7
+	Microarchitecture: Sandy Bridge (Client)
+	Frequency (GHz): 3.39
+	Number of physical packages: 1
+	Number of physical CPUs: 4
+	Number of logical CPUs: 8
+	Graphics card #0 name: NVIDIA GeForce GT 1030
+	Graphics card #0 vendor: NVIDIA (0x10de)
+	Graphics card #0 VRAM (MB): 2048.00
+	Graphics card #0 deviceId: 0x1d01
+	Graphics card #0 versionInfo: DriverVersion=31.0.15.2737
+	Memory slot #0 capacity (MB): 4096.00
+	Memory slot #0 clockSpeed (GHz): 1.33
+	Memory slot #0 type: DDR3
+	Memory slot #1 capacity (MB): 4096.00
+	Memory slot #1 clockSpeed (GHz): 1.33
+	Memory slot #1 type: DDR3
+	Memory slot #2 capacity (MB): 4096.00
+	Memory slot #2 clockSpeed (GHz): 1.33
+	Memory slot #2 type: DDR3
+	Memory slot #3 capacity (MB): 4096.00
+	Memory slot #3 clockSpeed (GHz): 1.33
+	Memory slot #3 type: DDR3
+	Virtual memory max (MB): 24021.98
+	Virtual memory used (MB): 11335.66
+	Swap memory total (MB): 7680.00
+	Swap memory used (MB): 0.00
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Dev'/52, l='ServerLevel[World of Magic]', x=133.78, y=82.00, z=416.13]]
+	Data Packs: vanilla, mod:forge, mod:regna_magia
+	World Generation: Stable
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	Launched Version: MOD_DEV
+	ModLauncher: 10.0.8+10.0.8+main.0ef7e830
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.3.jar eventbus PLUGINSERVICE 
+		fmlloader-1.19.2-43.1.7.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.19.2-43.1.7.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.19.2-43.1.7.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.19.2-43.1.7.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.19.2-43.1.7.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.8.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.8.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		forge-1.19.2-43.1.7_mapped_official_1.19.2-recomp.|Minecraft                     |minecraft                     |1.19.2              |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		main                                              |Regna Magia                   |regna_magia                   |0.0NONE             |DONE      |Manifest: NOSIGNATURE
+		                                                  |Forge                         |forge                         |43.1.7              |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: 1f381171-859f-4323-8306-6b5d4ca367a3
+	FML: 43.1
+	Forge: net.minecraftforge:43.1.7

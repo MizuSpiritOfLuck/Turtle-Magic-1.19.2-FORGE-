@@ -1,0 +1,7 @@
+Java Launcher: C:\Program Files\Eclipse Adoptium\jdk-17.0.5.8-hotspot\bin\java.exe
+Arguments: '--inJar, C:\Users\ColbaltheWyvern\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.19.2-43.1.7\forge-1.19.2-43.1.7-injected.jar, --outJar, C:\Users\ColbaltheWyvern\.gradle\caches\forge_gradle\minecraft_user_repo\net\minecraftforge\forge\1.19.2-43.1.7_mapped_official_1.19.2\forge-1.19.2-43.1.7_mapped_official_1.19.2.jar, --logFile, accesstransform.log, --atFile, D:\Minecraft Stuff\SimpleMagic [1.19.2 FORGE]\build\_atJar_4\parent_at.cfg'
+Classpath:
+ - C:\Users\ColbaltheWyvern\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\accesstransformers\8.0.7\accesstransformers-8.0.7-fatjar.jar
+Working directory: D:\Minecraft Stuff\SimpleMagic [1.19.2 FORGE]\build\_atJar_4
+Main class: net.minecraftforge.accesstransformer.TransformerProcessor
+====================================
