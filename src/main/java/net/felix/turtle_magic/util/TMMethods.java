@@ -1,8 +1,10 @@
 package net.felix.turtle_magic.util;
 
+import net.felix.turtle_magic.TurtleMagic;
 import net.felix.turtle_magic.entity.custom.SnapperFangs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
@@ -16,8 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class TMMethods {
-    public static final String MAGIC_SPELL_FAIL = "message.regna_magia.magic_spell_fail";
-    public static final String NO_SPELL_LOCK = "message.regna_magia.no_spell_lock";
+    public static final ResourceLocation TURTLE_SHELL = new ResourceLocation(TurtleMagic.MOD_ID, "textures/entity/turtle_shell.png");
 
     public static boolean hasBlockClose(ServerPlayer player, ServerLevel level, int range, Block block) {
         return level.getBlockStates(player.getBoundingBox().inflate(range))

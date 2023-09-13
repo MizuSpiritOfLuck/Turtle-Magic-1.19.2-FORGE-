@@ -1,7 +1,11 @@
 package net.felix.turtle_magic.entity.custom;
 
 import net.felix.turtle_magic.entity.TMEntityTypes;
+import net.felix.turtle_magic.item.TMItems;
+import net.felix.turtle_magic.item.custom.TempStaff;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -20,6 +24,7 @@ import net.minecraft.world.entity.animal.horse.Llama;
 import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -32,8 +37,7 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import javax.annotation.Nullable;
 import java.util.UUID;
 
-public class CoverShellEntity extends Monster implements IAnimatable {
-    private final AnimationFactory factory = new AnimationFactory(this);
+public class CoverShellEntity extends Entity {
     @Nullable
     private LivingEntity owner;
     @Nullable
@@ -41,27 +45,35 @@ public class CoverShellEntity extends Monster implements IAnimatable {
     private boolean hasLimitedLife;
     private int limitedLifeTicks;
 
-    public CoverShellEntity(EntityType<? extends Monster> type, Level level) {
+    public CoverShellEntity(EntityType<? extends CoverShellEntity> type, Level level) {
         super(type, level);
     }
 
     public CoverShellEntity(Level level, double d1, double d2, double d3, LivingEntity entity) {
         this(TMEntityTypes.COVER_SHELL.get(), level);
         this.setOwner(entity);
+        this.setYRot(getOwner().getYRot());
         this.setPos(d1, d2, d3);
-        this.getOwner().addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1, 10, false, false));
     }
 
-    public static AttributeSupplier setAttributes() {
-        return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 1.0f)
-                .add(Attributes.KNOCKBACK_RESISTANCE, 1000000.0F)
-                .build();
+    @Override
+    protected void defineSynchedData() {
+
     }
 
-    protected void registerGoals() {
-        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 0, false));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, true, false, this::canAttack));
+    public void tick() {
+        if(this.getOwner() != null) {
+            if(this.getOwner().getMainHandItem().is(TMItems.TEMP_STAFF.get())) {
+                this.setPos(getOwner().position());
+            }
+            this.setYRot(getOwner().getYRot());
+            this.getOwner().addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 10, 0, true, true));
+        }
+
+        if (this.hasLimitedLife && --this.limitedLifeTicks <= 0) {
+            this.limitedLifeTicks = 10;
+            this.discard();
+        }
     }
 
     public void setOwner(@Nullable LivingEntity entity) {
@@ -86,24 +98,12 @@ public class CoverShellEntity extends Monster implements IAnimatable {
         return true;
     }
 
-    public void tick() {
-        if(this.getOwner() != null) {
-            this.setPos(getOwner().position());
-        }
-
-        if (this.hasLimitedLife && --this.limitedLifeTicks <= 0) {
-            this.limitedLifeTicks = 20;
-            this.discard();
-        }
-    }
-
     public void setLimitedLife(int i) {
         this.hasLimitedLife = true;
         this.limitedLifeTicks = i;
     }
 
     public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
         if (tag.hasUUID("Owner")) {
             this.ownerUUID = tag.getUUID("Owner");
         }
@@ -113,7 +113,6 @@ public class CoverShellEntity extends Monster implements IAnimatable {
     }
 
     public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
         if (this.ownerUUID != null) {
             tag.putUUID("Owner", this.ownerUUID);
         }
@@ -122,23 +121,12 @@ public class CoverShellEntity extends Monster implements IAnimatable {
         }
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.cover_shell.spin", true));
-        return PlayState.CONTINUE;
-    }
-
-    @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller",
-                0, this::predicate));
+    public Packet<?> getAddEntityPacket() {
+        return new ClientboundAddEntityPacket(this);
     }
 
     public boolean hurt(DamageSource source, float f1) {
         return false;
     }
 
-    @Override
-    public AnimationFactory getFactory() {
-        return factory;
-    }
 }

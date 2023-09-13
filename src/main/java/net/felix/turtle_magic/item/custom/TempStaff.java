@@ -3,12 +3,15 @@ package net.felix.turtle_magic.item.custom;
 import net.felix.turtle_magic.entity.TMEntityTypes;
 import net.felix.turtle_magic.entity.custom.CoverShellEntity;
 import net.felix.turtle_magic.entity.custom.TestudoShellEntity;
+import net.felix.turtle_magic.entity.custom.TwirlingShellEntity;
 import net.felix.turtle_magic.util.TMMethods;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.EvokerFangs;
 import net.minecraft.world.item.Item;
@@ -25,18 +28,21 @@ public class TempStaff extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        if(!level.isClientSide && hand == InteractionHand.MAIN_HAND) {
+/*        if(!level.isClientSide && hand == InteractionHand.MAIN_HAND) {
+            TwirlingShellEntity twirlingShell = new TwirlingShellEntity(level, player.getX(), player.getY(), player.getZ(), player);
+            level.addFreshEntity(twirlingShell);
+        }*/
+/*        if(!level.isClientSide && hand == InteractionHand.MAIN_HAND) {
             CoverShellEntity coverShell = new CoverShellEntity(level, player.getX(), player.getY(), player.getZ(), player);
             level.addFreshEntity(coverShell);
-        }
-
-/*                if(!level.isClientSide && hand == InteractionHand.MAIN_HAND) {
+        }*/
+                if(!level.isClientSide && hand == InteractionHand.MAIN_HAND) {
                     TestudoShellEntity testudoShell = new TestudoShellEntity(level, player.getX(), player.getY(), player.getZ(), player);
                     level.addFreshEntity(testudoShell);
-                }*/
-        /*if(!level.isClientSide && hand == InteractionHand.MAIN_HAND && !player.isCrouching()) {
+                }
+/*        if(!level.isClientSide && hand == InteractionHand.MAIN_HAND && !player.isCrouching()) {
             double d0 = Math.min(getPlayerPOVHitResult(level, player, ClipContext.Fluid.ANY).getBlockPos().getY(), player.getY());
-            double d1 = Math.max(getPlayerPOVHitResult(level, player, ClipContext.Fluid.ANY).getBlockPos().getY(), player.getY()) + 1.0D;
+            double d1 = Math.max(getPlayerPOVHitResult(level, player, ClipContext.Fluid.ANY).getBlockPos().getY(), player.getY() + 1.0F);
             float f = (float) Mth.atan2(getPlayerPOVHitResult(level, player, ClipContext.Fluid.ANY).getBlockPos().getZ() - player.getZ(), getPlayerPOVHitResult(level, player, ClipContext.Fluid.ANY).getBlockPos().getX() - player.getX());
             if (player.distanceToSqr(getPlayerPOVHitResult(level, player, ClipContext.Fluid.ANY).getLocation()) < 9.0D) {
                 for(int i = 0; i < 5; ++i) {

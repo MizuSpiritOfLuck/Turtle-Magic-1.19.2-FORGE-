@@ -2,10 +2,11 @@ package net.felix.turtle_magic;
 
 import net.felix.turtle_magic.block.TMBlocks;
 import net.felix.turtle_magic.entity.TMEntityTypes;
-import net.felix.turtle_magic.entity.client.DescendingShellRenderer;
-import net.felix.turtle_magic.entity.client.SnapperFangsRenderer;
-import net.felix.turtle_magic.entity.client.TestudoShellRenderer;
-import net.felix.turtle_magic.entity.client.TwirlingShellRenderer;
+import net.felix.turtle_magic.entity.client.covershell.CoverShellRenderer;
+import net.felix.turtle_magic.entity.client.descendingshell.DescendingShellRenderer;
+import net.felix.turtle_magic.entity.client.snapperfangs.SnapperFangsRenderer;
+import net.felix.turtle_magic.entity.client.testudoshell.TestudoShellRenderer;
+import net.felix.turtle_magic.entity.client.twirlingshell.TwirlingShellRenderer;
 import net.felix.turtle_magic.item.TMItems;
 import net.felix.turtle_magic.networking.TMMessages;
 import net.felix.turtle_magic.sound.TMSounds;
@@ -56,6 +57,7 @@ public class TurtleMagic
             EntityRenderers.register(TMEntityTypes.TWIRLING_SHELL.get(), TwirlingShellRenderer::new);
             EntityRenderers.register(TMEntityTypes.SNAPPER_FANG.get(), SnapperFangsRenderer::new);
             EntityRenderers.register(TMEntityTypes.TESTUDO.get(), TestudoShellRenderer::new);
+            EntityRenderers.register(TMEntityTypes.COVER_SHELL.get(), CoverShellRenderer::new);
         }
     }
 }

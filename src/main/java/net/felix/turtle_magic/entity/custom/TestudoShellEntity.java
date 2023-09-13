@@ -1,16 +1,25 @@
 package net.felix.turtle_magic.entity.custom;
 
 import net.felix.turtle_magic.entity.TMEntityTypes;
+import net.felix.turtle_magic.item.TMItems;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
@@ -39,16 +48,43 @@ public class TestudoShellEntity extends Entity {
     protected void defineSynchedData() {
     }
 
+
+
     public ArrayList<LivingEntity> getAllies() {
         return allies;
     }
 
     public void tick() {
+        for(LivingEntity livingentity : this.level.getEntitiesOfClass(LivingEntity.class, this.getBoundingBox())) {
+                if(!(livingentity instanceof Player)) {
+                    this.push(livingentity);
+                    this.push(livingentity);
+                    this.push(livingentity);
+                    this.push(livingentity);
+                }
+        }
         if(this.getOwner() != null) {
-            this.setPos(getOwner().position());
+            if(this.getOwner().getMainHandItem().is(TMItems.TEMP_STAFF.get())) {
+                this.setPos(getOwner().position());
+            }
             this.setYRot(getOwner().getYRot());
         }
     }
+
+
+    private void pushEntity(LivingEntity entity) {
+        LivingEntity livingentity = this.getOwner();
+        if (entity.isAlive() && entity != livingentity) {
+            if (livingentity.isAlliedTo(entity)) {
+                return;
+            }
+            this.push(entity);
+            this.push(entity);
+            this.push(entity);
+            this.push(entity);
+        }
+    }
+
 
     public void setOwner(@Nullable LivingEntity entity) {
         this.owner = entity;
@@ -78,7 +114,6 @@ public class TestudoShellEntity extends Entity {
         if (this.ownerUUID != null) {
             tag.putUUID("Owner", this.ownerUUID);
         }
-
     }
 
     public boolean hurt(DamageSource source, float f1) {

@@ -22,7 +22,7 @@ public class TMEntityTypes {
 
     public static final RegistryObject<EntityType<TwirlingShellEntity>> TWIRLING_SHELL =
             ENTITY_TYPES.register("twirling_shell",
-                    () -> EntityType.Builder.of(TwirlingShellEntity::new, MobCategory.MISC)
+                    () -> EntityType.Builder.<TwirlingShellEntity>of(TwirlingShellEntity::new, MobCategory.MISC)
                             .sized(2.0f, 2.0f)
                             .build(new ResourceLocation(TurtleMagic.MOD_ID, "twirling_shell").toString()));
 
@@ -37,13 +37,13 @@ public class TMEntityTypes {
     public static final RegistryObject<EntityType<TestudoShellEntity>> TESTUDO =
             ENTITY_TYPES.register("testudo",
                     () -> EntityType.Builder.<TestudoShellEntity>of(TestudoShellEntity::new, MobCategory.MISC)
-                            .sized(8.0f, 8.0f)
+                            .sized(8.0f, 3.5f)
                             .build(new ResourceLocation(TurtleMagic.MOD_ID, "testudo").toString()));
 
     public static final RegistryObject<EntityType<CoverShellEntity>> COVER_SHELL =
             ENTITY_TYPES.register("cover_shell",
                     () -> EntityType.Builder.<CoverShellEntity>of(CoverShellEntity::new, MobCategory.MISC)
-                            .sized(3.0f, 1.0f)
+                            .sized(3.0f, 2.0f)
                             .build(new ResourceLocation(TurtleMagic.MOD_ID, "cover_shell").toString()));
 
 
