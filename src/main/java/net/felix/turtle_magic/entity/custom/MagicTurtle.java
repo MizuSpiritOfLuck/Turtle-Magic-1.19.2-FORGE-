@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.TurtleEggBlock;
 
 public class MagicTurtle extends Turtle {
 
-    private static final EntityDataAccessor<Boolean> LAYING_EGG = SynchedEntityData.defineId(Turtle.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> LAYING_EGG = SynchedEntityData.defineId(MagicTurtle.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> HAS_EGG = SynchedEntityData.defineId(MagicTurtle.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<BlockPos> HOME_POS = SynchedEntityData.defineId(MagicTurtle.class, EntityDataSerializers.BLOCK_POS);
     int layEggCounter;

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  t",
+    " S ",
+    "s  "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "t": {
+      "item": "minecraft:turtle_egg"
+    }
+  },
+  "result": {
+    "item": "turtle_magic:temp_staff"
+  }
+}

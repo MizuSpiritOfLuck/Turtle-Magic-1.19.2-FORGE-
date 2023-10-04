@@ -1,10 +1,7 @@
 package net.felix.turtle_magic.item.custom;
 
 import net.felix.turtle_magic.entity.TMEntityTypes;
-import net.felix.turtle_magic.entity.custom.CoverShellEntity;
-import net.felix.turtle_magic.entity.custom.DescendingShellEntity;
-import net.felix.turtle_magic.entity.custom.TestudoShellEntity;
-import net.felix.turtle_magic.entity.custom.TwirlingShellEntity;
+import net.felix.turtle_magic.entity.custom.*;
 import net.felix.turtle_magic.util.TMMethods;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -20,6 +17,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.animal.Turtle;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.EvokerFangs;
 import net.minecraft.world.item.Item;
@@ -31,6 +29,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.function.Consumer;
+
 public class TempStaff extends Item {
     public TempStaff(Properties properties) {
         super(properties);
@@ -40,6 +40,15 @@ public class TempStaff extends Item {
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int i, boolean b) {
         super.damageItem(stack, 1, Minecraft.getInstance().player, null);
+        if(this.getDamage(new ItemStack(this)) == 0) {
+            onBroken(level, Minecraft.getInstance().player);
+        }
+    }
+
+    private void onBroken(Level level, Player player) {
+        MagicTurtle magicTurtle = new MagicTurtle(EntityType.TURTLE, level);
+        magicTurtle.setPos(player.position());
+        level.addFreshEntity(magicTurtle);
     }
 
     @Override
