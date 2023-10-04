@@ -9,6 +9,8 @@ import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -48,41 +50,24 @@ public class TestudoShellEntity extends Entity {
     protected void defineSynchedData() {
     }
 
-
-
-    public ArrayList<LivingEntity> getAllies() {
-        return allies;
-    }
-
     public void tick() {
         for(LivingEntity livingentity : this.level.getEntitiesOfClass(LivingEntity.class, this.getBoundingBox())) {
                 if(!(livingentity instanceof Player)) {
-                    this.push(livingentity);
-                    this.push(livingentity);
-                    this.push(livingentity);
-                    this.push(livingentity);
+                    this.pushEntity(livingentity);
                 }
         }
         if(this.getOwner() != null) {
-            if(this.getOwner().getMainHandItem().is(TMItems.TEMP_STAFF.get())) {
-                this.setPos(getOwner().position());
-            }
+            this.setPos(getOwner().position());
             this.setYRot(getOwner().getYRot());
         }
     }
 
 
     private void pushEntity(LivingEntity entity) {
-        LivingEntity livingentity = this.getOwner();
-        if (entity.isAlive() && entity != livingentity) {
-            if (livingentity.isAlliedTo(entity)) {
-                return;
-            }
             this.push(entity);
             this.push(entity);
             this.push(entity);
             this.push(entity);
-        }
     }
 
 

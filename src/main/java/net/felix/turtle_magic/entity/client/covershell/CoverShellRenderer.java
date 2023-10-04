@@ -28,6 +28,8 @@ public class CoverShellRenderer extends EntityRenderer<CoverShellEntity> {
     public void render(CoverShellEntity coverShell, float f1, float f2, PoseStack stack, MultiBufferSource source, int i1) {
         super.render(coverShell, f1, f2, stack, source, i1);
         stack.pushPose();
+        stack.scale(-1.0f, -1.0f, 1.0f);
+        stack.translate(0, -1.25, 0);
         model.setupAnim(coverShell, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
         VertexConsumer vertexConsumer = source.getBuffer(this.model.renderType(this.getTextureLocation(coverShell)));
         model.renderToBuffer(stack, vertexConsumer, i1, OverlayTexture.NO_OVERLAY, 1.0f, 1.0f, 1.0f, 1.0f);

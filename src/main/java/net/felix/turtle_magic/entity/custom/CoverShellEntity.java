@@ -62,12 +62,16 @@ public class CoverShellEntity extends Entity {
     }
 
     public void tick() {
+        for(LivingEntity livingentity : this.level.getEntitiesOfClass(LivingEntity.class, this.getBoundingBox())) {
+            if(!(livingentity instanceof Player)) {
+                livingentity.hurt(DamageSource.GENERIC, 3);
+            }
+        }
         if(this.getOwner() != null) {
             if(this.getOwner().getMainHandItem().is(TMItems.TEMP_STAFF.get())) {
                 this.setPos(getOwner().position());
             }
             this.setYRot(getOwner().getYRot());
-            this.getOwner().addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 10, 0, true, true));
         }
 
         if (this.hasLimitedLife && --this.limitedLifeTicks <= 0) {

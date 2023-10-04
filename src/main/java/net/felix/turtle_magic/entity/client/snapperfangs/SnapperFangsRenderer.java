@@ -13,7 +13,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 
 public class SnapperFangsRenderer extends EntityRenderer<SnapperFangs> {
-    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(TurtleMagic.MOD_ID, "textures/entity/snapper_fang.png");
+    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(TurtleMagic.MOD_ID, "textures/entity/snapper_fangs.png");
     private final SnapperFangsModel<SnapperFangs> model;
 
     public SnapperFangsRenderer(EntityRendererProvider.Context context) {

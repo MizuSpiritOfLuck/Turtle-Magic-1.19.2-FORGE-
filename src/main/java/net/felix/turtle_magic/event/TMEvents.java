@@ -4,6 +4,7 @@ import net.felix.turtle_magic.TurtleMagic;
 import net.felix.turtle_magic.entity.TMEntityTypes;
 import net.felix.turtle_magic.entity.client.TMModelLayers;
 import net.felix.turtle_magic.entity.client.covershell.CoverShellModel;
+import net.felix.turtle_magic.entity.client.snapperfangs.SnapperFangsModel;
 import net.felix.turtle_magic.entity.client.testudoshell.TestudoShellModel;
 import net.felix.turtle_magic.entity.client.twirlingshell.TwirlingShellModel;
 import net.felix.turtle_magic.entity.custom.CoverShellEntity;
@@ -19,12 +20,7 @@ public class TMEvents {
     @Mod.EventBusSubscriber(modid = TurtleMagic.MOD_ID)
     public static class ForgeEvents {
 
-/*        @SubscribeEvent
-        public static void entityMover(EntityTeleportEvent event) {
-            if(event.getEntity() instanceof CoverShellEntity) {
-                entityMover(new EntityTeleportEvent(event.getEntity(), ((CoverShellEntity) event.getEntity()).getOwner().getX(), ((CoverShellEntity) event.getEntity()).getOwner().getY(), ((CoverShellEntity) event.getEntity()).getOwner().getZ()));
-            }
-        }*/
+
 
         @Mod.EventBusSubscriber(modid = TurtleMagic.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
         public static class TMEventBusEvents {

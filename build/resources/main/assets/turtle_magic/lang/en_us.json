@@ -4,5 +4,8 @@
 
   "item.turtle_magic.temp_staff": "Temp Staff",
 
+  "key.category.turtle_magic.tm": "Turtle Magic",
+  "key.turtle_magic.toggle_spellhud": "Toggle Spellhud",
+
   "itemGroup.tm_tab": "Turtle Magic"
 }
