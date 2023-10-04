@@ -15,7 +15,7 @@ public class TMItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, TurtleMagic.MOD_ID);
 
     public static final RegistryObject<Item> TEMP_STAFF = ITEMS.register("temp_staff",
-            () -> new TempStaff(new Item.Properties().durability(120000).tab(TMCreativeTab.TM_TAB)));
+            () -> new TempStaff(new Item.Properties().durability(360000).tab(TMCreativeTab.TM_TAB)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

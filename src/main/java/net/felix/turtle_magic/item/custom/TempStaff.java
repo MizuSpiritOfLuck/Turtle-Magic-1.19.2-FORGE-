@@ -46,7 +46,7 @@ public class TempStaff extends Item {
     }
 
     private void onBroken(Level level, Player player) {
-        MagicTurtle magicTurtle = new MagicTurtle(EntityType.TURTLE, level);
+        MagicTurtle magicTurtle = new MagicTurtle(TMEntityTypes.MAGIC_TURTLE.get(), level);
         magicTurtle.setPos(player.position());
         level.addFreshEntity(magicTurtle);
     }

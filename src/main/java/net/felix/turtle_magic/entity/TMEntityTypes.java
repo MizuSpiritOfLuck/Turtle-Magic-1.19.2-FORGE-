@@ -5,6 +5,7 @@ import net.felix.turtle_magic.entity.custom.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.animal.Turtle;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -45,6 +46,13 @@ public class TMEntityTypes {
                     () -> EntityType.Builder.<CoverShellEntity>of(CoverShellEntity::new, MobCategory.MISC)
                             .sized(3.0f, 2.0f)
                             .build(new ResourceLocation(TurtleMagic.MOD_ID, "cover_shell").toString()));
+
+    public static final RegistryObject<EntityType<MagicTurtle>> MAGIC_TURTLE =
+            ENTITY_TYPES.register("magic_turtle",
+                    () -> EntityType.Builder.<MagicTurtle>of(MagicTurtle::new, MobCategory.CREATURE)
+                            .sized(1.2F, 0.4F)
+                            .clientTrackingRange(10)
+                            .build(new ResourceLocation(TurtleMagic.MOD_ID, "magic_turtle").toString()));
 
 
     public static void register(IEventBus eventBus) {

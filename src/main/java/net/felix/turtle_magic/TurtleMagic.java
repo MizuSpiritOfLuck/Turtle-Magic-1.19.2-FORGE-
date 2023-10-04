@@ -4,6 +4,7 @@ import net.felix.turtle_magic.block.TMBlocks;
 import net.felix.turtle_magic.entity.TMEntityTypes;
 import net.felix.turtle_magic.entity.client.covershell.CoverShellRenderer;
 import net.felix.turtle_magic.entity.client.descendingshell.DescendingShellRenderer;
+import net.felix.turtle_magic.entity.client.magicturtle.MagicTurtleRenderer;
 import net.felix.turtle_magic.entity.client.snapperfangs.SnapperFangsRenderer;
 import net.felix.turtle_magic.entity.client.testudoshell.TestudoShellRenderer;
 import net.felix.turtle_magic.entity.client.twirlingshell.TwirlingShellRenderer;
@@ -58,6 +59,7 @@ public class TurtleMagic
             EntityRenderers.register(TMEntityTypes.SNAPPER_FANG.get(), SnapperFangsRenderer::new);
             EntityRenderers.register(TMEntityTypes.TESTUDO.get(), TestudoShellRenderer::new);
             EntityRenderers.register(TMEntityTypes.COVER_SHELL.get(), CoverShellRenderer::new);
+            EntityRenderers.register(TMEntityTypes.MAGIC_TURTLE.get(), MagicTurtleRenderer::new);
         }
     }
 }

@@ -7,5 +7,8 @@
   "key.category.turtle_magic.tm": "Turtle Magic",
   "key.turtle_magic.toggle_spellhud": "Toggle Spellhud",
 
+  "advancements.turtle_magic.root.title": "Turtle Magic",
+  "advancements.turtle_magic.root.description": "A totally humane magic method (PETA).",
+
   "itemGroup.tm_tab": "Turtle Magic"
 }
