@@ -4,6 +4,7 @@ import net.felix.turtle_magic.TurtleMagic;
 import net.felix.turtle_magic.entity.TMEntityTypes;
 import net.felix.turtle_magic.entity.client.TMModelLayers;
 import net.felix.turtle_magic.entity.client.covershell.CoverShellModel;
+import net.felix.turtle_magic.entity.client.descendingshell.DescendingShellModel;
 import net.felix.turtle_magic.entity.client.snapperfangs.SnapperFangsModel;
 import net.felix.turtle_magic.entity.client.testudoshell.TestudoShellModel;
 import net.felix.turtle_magic.entity.client.twirlingshell.TwirlingShellModel;
@@ -28,7 +29,6 @@ public class TMEvents {
 
             @SubscribeEvent
             public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
-                event.put(TMEntityTypes.DESCENDING_SHELL.get(), DescendingShellEntity.setAttributes());
                 event.put(TMEntityTypes.MAGIC_TURTLE.get(), MagicTurtle.setAttributes());
             }
 
@@ -37,6 +37,7 @@ public class TMEvents {
                 event.registerLayerDefinition(TMModelLayers.TESTUDO_LAYER, TestudoShellModel::createBodyLayer);
                 event.registerLayerDefinition(TMModelLayers.TWIRLING_SHELL_LAYER, TwirlingShellModel::createBodyLayer);
                 event.registerLayerDefinition(TMModelLayers.COVER_SHELL_LAYER, CoverShellModel::createBodyLayer);
+                event.registerLayerDefinition(TMModelLayers.DESCENDING_SHELL_LAYER, DescendingShellModel::createBodyLayer);
             }
         }
     }

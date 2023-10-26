@@ -10,6 +10,7 @@ displayName="Turtle Magic"
 logoFile="turtle_magic.png"
 authors="Felix, driplock"
 description='''
+Adds turtle themed spells to Minecraft.
 '''
 
 [[dependencies.turtle_magic]]

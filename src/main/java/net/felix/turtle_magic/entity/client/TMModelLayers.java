@@ -16,4 +16,8 @@ public class TMModelLayers {
 
     public static final ModelLayerLocation SNAPPER_FANG_LAYER = new ModelLayerLocation(
             new ResourceLocation(TurtleMagic.MOD_ID, "snapper_fang_layer"), "snapper_fang_layer");
+
+    public static final ModelLayerLocation DESCENDING_SHELL_LAYER = new ModelLayerLocation(
+            new ResourceLocation(TurtleMagic.MOD_ID, "descending_shell_layer"), "descending_shell_layer");
+
 }

@@ -2,6 +2,9 @@ package net.felix.turtle_magic.entity.custom;
 
 import java.util.function.Predicate;
 import javax.annotation.Nullable;
+
+import net.felix.turtle_magic.block.TMBlocks;
+import net.felix.turtle_magic.block.custom.MagicTurtleEggBlock;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -83,8 +86,13 @@ public class MagicTurtle extends Turtle {
         this.maxUpStep = 1.0F;
     }
 
+    @Override
+    public boolean fireImmune() {
+        return true;
+    }
+
     public void setHomePos(BlockPos blockPos) {
-        this.entityData.set(HOME_POS, blockPos);
+        this.entityData.set(HOME_POS, this.blockPosition());
     }
 
     BlockPos getHomePos() {
@@ -174,7 +182,7 @@ public class MagicTurtle extends Turtle {
     }
 
     public static boolean checkTurtleSpawnRules(EntityType<Turtle> entityType, LevelAccessor accessor, MobSpawnType spawnType, BlockPos pos, RandomSource source) {
-        return pos.getY() < accessor.getSeaLevel() + 4 && TurtleEggBlock.onSand(accessor, pos) && isBrightEnoughToSpawn(accessor, pos);
+        return pos.getY() < accessor.getSeaLevel() + 4 && isBrightEnoughToSpawn(accessor, pos);
     }
 
     protected void registerGoals() {
@@ -269,7 +277,7 @@ public class MagicTurtle extends Turtle {
         if (!this.isGoingHome() && reader.getFluidState(pos).is(FluidTags.WATER)) {
             return 10.0F;
         } else {
-            return TurtleEggBlock.onSand(reader, pos) ? 10.0F : reader.getPathfindingCostFromLightLevels(pos);
+            return reader.getPathfindingCostFromLightLevels(pos);
         }
     }
 
@@ -277,9 +285,7 @@ public class MagicTurtle extends Turtle {
         super.aiStep();
         if (this.isAlive() && this.isLayingEgg() && this.layEggCounter >= 1 && this.layEggCounter % 5 == 0) {
             BlockPos blockpos = this.blockPosition();
-            if (TurtleEggBlock.onSand(this.level, blockpos)) {
                 this.level.levelEvent(2001, blockpos, Block.getId(this.level.getBlockState(blockpos.below())));
-            }
         }
 
     }
@@ -465,13 +471,12 @@ public class MagicTurtle extends Turtle {
         public void tick() {
             super.tick();
             BlockPos blockpos = this.turtle.blockPosition();
-            if (!this.turtle.isInWater() && this.isReachedTarget()) {
                 if (this.turtle.layEggCounter < 1) {
                     this.turtle.setLayingEgg(true);
                 } else if (this.turtle.layEggCounter > this.adjustedTickDelay(200)) {
                     Level level = this.turtle.level;
                     level.playSound((Player)null, blockpos, SoundEvents.TURTLE_LAY_EGG, SoundSource.BLOCKS, 0.3F, 0.9F + level.random.nextFloat() * 0.2F);
-                    level.setBlock(this.blockPos.above(), Blocks.TURTLE_EGG.defaultBlockState().setValue(TurtleEggBlock.EGGS, Integer.valueOf(this.turtle.random.nextInt(4) + 1)), 3);
+                    level.setBlock(this.blockPos, TMBlocks.MAGIC_TURTLE_EGG.get().defaultBlockState().setValue(MagicTurtleEggBlock.EGGS, Integer.valueOf(this.turtle.random.nextInt(4) + 1)), 3);
                     this.turtle.setHasEgg(false);
                     this.turtle.setLayingEgg(false);
                     this.turtle.setInLoveTime(600);
@@ -480,12 +485,11 @@ public class MagicTurtle extends Turtle {
                 if (this.turtle.isLayingEgg()) {
                     ++this.turtle.layEggCounter;
                 }
-            }
 
         }
 
         protected boolean isValidTarget(LevelReader reader, BlockPos pos) {
-            return !reader.isEmptyBlock(pos.above()) ? false : TurtleEggBlock.isSand(reader, pos);
+            return !reader.isEmptyBlock(pos.above());
         }
     }
 

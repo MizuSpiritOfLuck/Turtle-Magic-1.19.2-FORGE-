@@ -2,7 +2,22 @@
   "entity.turtle_magic.descending_shell": "Descending Shell",
   "entity.turtle_magic.twirling_shell": "Twirling Shell",
 
-  "item.turtle_magic.temp_staff": "Temp Staff",
+  "item.turtle_magic.turtle_staff_lv1": "Makeshift Turtle Staff",
+  "item.turtle_magic.turtle_staff_lv2": "Lv. 2 Turtle Staff",
+  "item.turtle_magic.turtle_staff_lv3": "Lv. 3 Turtle Staff",
+  "item.turtle_magic.turtle_staff_lv4": "Lv. 4 Turtle Staff",
+  "item.turtle_magic.turtle_staff_lv5": "Lv. 5 Turtle Staff",
+  "item.turtle_magic.turtle_staff_lv6": "Lv. 6 Turtle Staff",
+  "item.turtle_magic.turtle_staff_lv7": "Lv. 7 Turtle Staff",
+
+  "item.turtle_magic.upgrade_1": "Lv.1 Upgrade",
+  "item.turtle_magic.upgrade_2": "Lv.2 Upgrade",
+  "item.turtle_magic.upgrade_3": "Lv.3 Upgrade",
+  "item.turtle_magic.upgrade_4": "Lv.4 Upgrade",
+  "item.turtle_magic.upgrade_5": "Lv.5 Upgrade",
+  "item.turtle_magic.upgrade_6": "Lv.6 Upgrade",
+
+  "block.turtle_magic.magic_turtle_egg": "Magic Turtle Egg",
 
   "key.category.turtle_magic.tm": "Turtle Magic",
   "key.turtle_magic.toggle_spellhud": "Toggle Spellhud",

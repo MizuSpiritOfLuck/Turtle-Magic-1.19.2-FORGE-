@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "turtle_magic:item/turtle_staff_lv5"
+  }
+}

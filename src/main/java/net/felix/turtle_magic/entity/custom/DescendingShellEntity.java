@@ -1,6 +1,11 @@
 package net.felix.turtle_magic.entity.custom;
 
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
+import net.minecraft.world.entity.AnimationState;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -16,32 +21,30 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-public class DescendingShellEntity extends Monster implements IAnimatable {
-    private AnimationFactory factory = new AnimationFactory(this);
+public class DescendingShellEntity extends Entity {
 
-    public DescendingShellEntity(EntityType<? extends Monster> type, Level level) {
+    public DescendingShellEntity(EntityType<? extends DescendingShellEntity> type, Level level) {
         super(type, level);
     }
+    public final AnimationState spinAnimationState = new AnimationState();
 
-    public static AttributeSupplier setAttributes() {
-        return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 1.0f)
-                .add(Attributes.KNOCKBACK_RESISTANCE, 1000000.0F)
-                .build();
+    @Override
+    protected void defineSynchedData() {
+
     }
 
     public void tick() {
+        if(level.isClientSide()) {
+            this.spinAnimationState.startIfStopped(this.tickCount);
+        }
+
         if (!this.isNoGravity()) {
             this.setDeltaMovement(this.getDeltaMovement().add(0.0D, -0.1D, 0.0D));
         }
 
         this.move(MoverType.SELF, this.getDeltaMovement());
-        this.setDeltaMovement(this.getDeltaMovement().scale(0.98D));
-        if (this.onGround) {
-            this.setDeltaMovement(this.getDeltaMovement().multiply(0.7D, -0.5D, 0.7D));
-        }
 
-        if (this.isDeadOrDying()) {
+        if (this.onGround) {
             if (!this.level.isClientSide) {
                 this.explode();
                 this.discard();
@@ -52,26 +55,19 @@ public class DescendingShellEntity extends Monster implements IAnimatable {
                 this.level.addParticle(ParticleTypes.EXPLOSION, this.getX(), this.getY() + 2, this.getZ(), 0.0D, 0.0D, 0.0D);
             }
         }
-
     }
 
     protected void explode() {
         this.level.explode(this, this.getX(), this.getY(), this.getZ(), 25.0F, Explosion.BlockInteraction.BREAK);
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.descending_shell.spin", true));
-        return PlayState.CONTINUE;
-    }
+    @Override
+    protected void readAdditionalSaveData(CompoundTag tag) { }
 
     @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller",
-                0, this::predicate));
-    }
+    protected void addAdditionalSaveData(CompoundTag tag) { }
 
-    @Override
-    public AnimationFactory getFactory() {
-        return factory;
+    public Packet<?> getAddEntityPacket() {
+        return new ClientboundAddEntityPacket(this);
     }
 }

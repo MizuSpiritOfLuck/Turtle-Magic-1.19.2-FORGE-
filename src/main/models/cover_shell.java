@@ -6,19 +6,21 @@
 public class cover_shell<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "cover_shell"), "main");
-	private final ModelPart CoverShells;
+	private final ModelPart CoverShell;
 
 	public cover_shell(ModelPart root) {
-		this.CoverShells = root.getChild("CoverShells");
+		this.CoverShell = root.getChild("CoverShell");
 	}
 
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition CoverShells = partdefinition.addOrReplaceChild("CoverShells", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
+		PartDefinition CoverShell = partdefinition.addOrReplaceChild("CoverShell", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 24.0F, 0.0F, 0.0F, 0.5215F, 0.0F));
 
-		PartDefinition TurtleShell = CoverShells.addOrReplaceChild("TurtleShell", CubeListBuilder.create(), PartPose.offset(0.0F, -15.0F, -20.0F));
+		PartDefinition TurtleShells = CoverShell.addOrReplaceChild("TurtleShells", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition TurtleShell = TurtleShells.addOrReplaceChild("TurtleShell", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, -15.0F, -20.0F, 0.0F, -0.5215F, 0.0F));
 
 		PartDefinition Underbelly = TurtleShell.addOrReplaceChild("Underbelly", CubeListBuilder.create().texOffs(51, 55).addBox(-7.0F, -0.5F, -7.0F, 14.0F, 1.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 4.0F, 0.0F));
 
@@ -28,7 +30,7 @@ public class cover_shell<T extends Entity> extends EntityModel<T> {
 
 		PartDefinition Shell_r1 = Shell.addOrReplaceChild("Shell_r1", CubeListBuilder.create().texOffs(0, 23).addBox(-9.0F, -3.0F, -9.0F, 18.0F, 6.0F, 18.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -1.5F, 0.0F, 0.0F, 3.1416F, 0.0F));
 
-		PartDefinition TurtleShell2 = CoverShells.addOrReplaceChild("TurtleShell2", CubeListBuilder.create(), PartPose.offset(21.0F, -15.0F, 15.0F));
+		PartDefinition TurtleShell2 = TurtleShells.addOrReplaceChild("TurtleShell2", CubeListBuilder.create(), PartPose.offsetAndRotation(21.0F, -15.0F, 15.0F, 0.0F, -0.5215F, 0.0F));
 
 		PartDefinition Underbelly2 = TurtleShell2.addOrReplaceChild("Underbelly2", CubeListBuilder.create().texOffs(51, 55).addBox(-7.0F, -0.5F, -7.0F, 14.0F, 1.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 4.0F, 0.0F));
 
@@ -38,7 +40,7 @@ public class cover_shell<T extends Entity> extends EntityModel<T> {
 
 		PartDefinition Shell_r2 = Shell2.addOrReplaceChild("Shell_r2", CubeListBuilder.create().texOffs(0, 23).addBox(-9.0F, -3.0F, -9.0F, 18.0F, 6.0F, 18.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -1.5F, 0.0F, 0.0F, 3.1416F, 0.0F));
 
-		PartDefinition TurtleShell3 = CoverShells.addOrReplaceChild("TurtleShell3", CubeListBuilder.create(), PartPose.offset(-21.0F, -15.0F, 15.0F));
+		PartDefinition TurtleShell3 = TurtleShells.addOrReplaceChild("TurtleShell3", CubeListBuilder.create(), PartPose.offsetAndRotation(-21.0F, -15.0F, 15.0F, 0.0F, -0.5215F, 0.0F));
 
 		PartDefinition Underbelly3 = TurtleShell3.addOrReplaceChild("Underbelly3", CubeListBuilder.create().texOffs(51, 55).addBox(-7.0F, -0.5F, -7.0F, 14.0F, 1.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 4.0F, 0.0F));
 
@@ -58,6 +60,6 @@ public class cover_shell<T extends Entity> extends EntityModel<T> {
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		CoverShells.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		CoverShell.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }

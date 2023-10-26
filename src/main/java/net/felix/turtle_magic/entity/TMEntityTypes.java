@@ -39,12 +39,14 @@ public class TMEntityTypes {
             ENTITY_TYPES.register("testudo",
                     () -> EntityType.Builder.<TestudoShellEntity>of(TestudoShellEntity::new, MobCategory.MISC)
                             .sized(8.0f, 3.5f)
+                            .updateInterval(1)
                             .build(new ResourceLocation(TurtleMagic.MOD_ID, "testudo").toString()));
 
     public static final RegistryObject<EntityType<CoverShellEntity>> COVER_SHELL =
             ENTITY_TYPES.register("cover_shell",
                     () -> EntityType.Builder.<CoverShellEntity>of(CoverShellEntity::new, MobCategory.MISC)
-                            .sized(3.0f, 2.0f)
+                            .sized(3.5f, 1.2f)
+                            .updateInterval(1)
                             .build(new ResourceLocation(TurtleMagic.MOD_ID, "cover_shell").toString()));
 
     public static final RegistryObject<EntityType<MagicTurtle>> MAGIC_TURTLE =

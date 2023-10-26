@@ -1,0 +1,26 @@
+
+public static final AnimationDefinition COVER_SHELL_SPIN = AnimationDefinition.Builder.withLength(1f).looping()
+.addAnimation("CoverShells",
+	new AnimationChannel(AnimationChannel.Targets.ROTATION,
+		new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
+			AnimationChannel.Interpolations.LINEAR),
+		new Keyframe(1f, KeyframeAnimations.degreeVec(0f, 360f, 0f),
+			AnimationChannel.Interpolations.LINEAR)))
+.addAnimation("TurtleShell",
+	new AnimationChannel(AnimationChannel.Targets.ROTATION,
+		new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
+			AnimationChannel.Interpolations.LINEAR),
+		new Keyframe(1f, KeyframeAnimations.degreeVec(0f, -360f, 0f),
+			AnimationChannel.Interpolations.LINEAR)))
+.addAnimation("TurtleShell2",
+	new AnimationChannel(AnimationChannel.Targets.ROTATION,
+		new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
+			AnimationChannel.Interpolations.LINEAR),
+		new Keyframe(1f, KeyframeAnimations.degreeVec(0f, -360f, 0f),
+			AnimationChannel.Interpolations.LINEAR)))
+.addAnimation("TurtleShell3",
+	new AnimationChannel(AnimationChannel.Targets.ROTATION,
+		new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
+			AnimationChannel.Interpolations.LINEAR),
+		new Keyframe(1f, KeyframeAnimations.degreeVec(0f, -360f, 0f),
+			AnimationChannel.Interpolations.LINEAR))).build();

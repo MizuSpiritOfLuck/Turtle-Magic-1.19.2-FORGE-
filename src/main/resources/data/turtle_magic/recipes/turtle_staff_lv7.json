@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "turtle_magic:upgrade_6"
+    },
+    {
+      "item": "turtle_magic:turtle_staff_lv6"
+    }
+  ],
+  "result": {
+    "item": "turtle_magic:turtle_staff_lv7"
+  }
+}

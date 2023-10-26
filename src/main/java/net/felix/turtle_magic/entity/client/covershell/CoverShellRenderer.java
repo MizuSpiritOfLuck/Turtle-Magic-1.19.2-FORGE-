@@ -30,7 +30,7 @@ public class CoverShellRenderer extends EntityRenderer<CoverShellEntity> {
         stack.pushPose();
         stack.scale(-1.0f, -1.0f, 1.0f);
         stack.translate(0, -1.25, 0);
-        model.setupAnim(coverShell, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        model.setupAnim(coverShell, 1.0f, 1.0f, 1.6f, 1.0f, 1.0f);
         VertexConsumer vertexConsumer = source.getBuffer(this.model.renderType(this.getTextureLocation(coverShell)));
         model.renderToBuffer(stack, vertexConsumer, i1, OverlayTexture.NO_OVERLAY, 1.0f, 1.0f, 1.0f, 1.0f);
         stack.popPose();
@@ -41,37 +41,3 @@ public class CoverShellRenderer extends EntityRenderer<CoverShellEntity> {
         return TMMethods.TURTLE_SHELL;
     }
 }
-
-/*
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.felix.turtle_magic.TurtleMagic;
-import net.felix.turtle_magic.entity.custom.CoverShellEntity;
-import net.felix.turtle_magic.util.TMMethods;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.resources.ResourceLocation;
-import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
-
-
-public class CoverShellRenderer extends GeoEntityRenderer<CoverShellEntity> {
-
-    public CoverShellRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new CoverShellModel());
-    }
-
-    @Override
-    public ResourceLocation getTextureLocation(CoverShellEntity instance) {
-        return TMMethods.TURTLE_SHELL;
-    }
-
-    @Override
-    public RenderType getRenderType(CoverShellEntity animatable, float partialTick, PoseStack stack,
-                                    @Nullable MultiBufferSource bufferSource, @Nullable VertexConsumer buffer,
-                                    int packedLight, ResourceLocation texture) {
-        return super.getRenderType(animatable, partialTick, stack, bufferSource, buffer, packedLight, texture);
-    }
-}
-*/

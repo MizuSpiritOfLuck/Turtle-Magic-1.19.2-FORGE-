@@ -1,6 +1,0 @@
-{
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "turtle_magic:item/makeshift_turtle_staff"
-  }
-}
