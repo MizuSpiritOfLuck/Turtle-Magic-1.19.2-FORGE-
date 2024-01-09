@@ -9,6 +9,7 @@ displayName="Turtle Magic"
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
 logoFile="turtle_magic.png"
 authors="Felix, driplock"
+credits="Thank you to andreybadrey and peuloom for helping me with the Testudo Shell pushing code and to Luis_ST for help with the Descending Shell positioning code!"
 description='''
 Adds turtle themed spells to Minecraft.
 '''

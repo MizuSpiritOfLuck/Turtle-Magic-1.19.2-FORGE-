@@ -1,0 +1,17 @@
+
+public static final AnimationDefinition TWIRLING_SHELL_SPIN = AnimationDefinition.Builder.withLength(0.5f).looping()
+.addAnimation("TurtleShell",
+	new AnimationChannel(AnimationChannel.Targets.ROTATION,
+		new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
+			AnimationChannel.Interpolations.LINEAR),
+		new Keyframe(0.5f, KeyframeAnimations.degreeVec(0f, -360f, 0f),
+			AnimationChannel.Interpolations.LINEAR))).build();
+public static final AnimationDefinition TWIRLING_SHELL_DEATH = AnimationDefinition.Builder.withLength(0.20834334f)
+.addAnimation("TurtleShell",
+	new AnimationChannel(AnimationChannel.Targets.SCALE,
+		new Keyframe(0f, KeyframeAnimations.scaleVec(1f, 1f, 1f),
+			AnimationChannel.Interpolations.LINEAR),
+		new Keyframe(0.125f, KeyframeAnimations.scaleVec(0.5f, 0.5f, 0.5f),
+			AnimationChannel.Interpolations.LINEAR),
+		new Keyframe(0.20834334f, KeyframeAnimations.scaleVec(0f, 1f, 0f),
+			AnimationChannel.Interpolations.LINEAR))).build();

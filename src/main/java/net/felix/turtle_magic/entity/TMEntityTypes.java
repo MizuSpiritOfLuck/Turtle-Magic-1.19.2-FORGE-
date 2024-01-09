@@ -24,7 +24,7 @@ public class TMEntityTypes {
     public static final RegistryObject<EntityType<TwirlingShellEntity>> TWIRLING_SHELL =
             ENTITY_TYPES.register("twirling_shell",
                     () -> EntityType.Builder.<TwirlingShellEntity>of(TwirlingShellEntity::new, MobCategory.MISC)
-                            .sized(2.0f, 2.0f)
+                            .sized(2.5f, 2.5f)
                             .build(new ResourceLocation(TurtleMagic.MOD_ID, "twirling_shell").toString()));
 
     public static final RegistryObject<EntityType<SnapperFangs>> SNAPPER_FANG =

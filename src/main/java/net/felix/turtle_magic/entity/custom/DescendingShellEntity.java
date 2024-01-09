@@ -1,5 +1,7 @@
 package net.felix.turtle_magic.entity.custom;
 
+import net.felix.turtle_magic.util.TMMethods;
+import net.felix.turtle_magic.world.TMDamageSource;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -8,18 +10,8 @@ import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MoverType;
-import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 public class DescendingShellEntity extends Entity {
 
@@ -58,7 +50,7 @@ public class DescendingShellEntity extends Entity {
     }
 
     protected void explode() {
-        this.level.explode(this, this.getX(), this.getY(), this.getZ(), 25.0F, Explosion.BlockInteraction.BREAK);
+        TMMethods.explode(this, this.level, this.getX(), this.getY(), this.getZ(), 25.0F, false, Explosion.BlockInteraction.NONE, TMDamageSource.descendingShell(this));
     }
 
     @Override

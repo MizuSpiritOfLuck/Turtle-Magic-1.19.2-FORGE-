@@ -1,7 +1,6 @@
 package net.felix.turtle_magic.item.custom;
 
 import net.felix.turtle_magic.item.custom.base.TurtleStaffBase;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;

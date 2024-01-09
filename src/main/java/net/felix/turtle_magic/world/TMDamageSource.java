@@ -1,6 +1,7 @@
 package net.felix.turtle_magic.world;
 
 import net.felix.turtle_magic.entity.custom.DescendingShellEntity;
+import net.felix.turtle_magic.entity.custom.TwirlingShellEntity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.EntityDamageSource;
@@ -28,9 +29,13 @@ public class TMDamageSource {
     private boolean noAggro;
     public final String msgId;
 
-/*    public static DamageSource descendingShell(DescendingShellEntity descendingShell) {
+    public static DamageSource descendingShell(DescendingShellEntity descendingShell) {
         return (new EntityDamageSource("descendingShell", descendingShell)).setProjectile();
-    }*/
+    }
+
+    public static DamageSource twirlingShell(TwirlingShellEntity twirlingShell) {
+        return (new EntityDamageSource("twirlingShell", twirlingShell)).setProjectile();
+    }
 
 
     public String toString() {

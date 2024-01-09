@@ -2,15 +2,11 @@ package net.felix.turtle_magic.entity.client.twirlingshell;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.felix.turtle_magic.TurtleMagic;
 import net.felix.turtle_magic.entity.client.TMModelLayers;
-import net.felix.turtle_magic.entity.client.testudoshell.TestudoShellModel;
-import net.felix.turtle_magic.entity.custom.TestudoShellEntity;
 import net.felix.turtle_magic.entity.custom.TwirlingShellEntity;
 import net.felix.turtle_magic.util.TMMethods;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
@@ -30,8 +26,9 @@ public class TwirlingShellRenderer extends EntityRenderer<TwirlingShellEntity> {
     public void render(TwirlingShellEntity twirlingShell, float f1, float f2, PoseStack stack, MultiBufferSource source, int i1) {
         super.render(twirlingShell, f1, f2, stack, source, i1);
         stack.pushPose();
-        stack.scale(-1.5f, -1.5f, 1.5f);
-        model.setupAnim(twirlingShell, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        stack.scale(2.1f, 2.1f, 2.1f);
+        stack.translate(0, -0.35, 0);
+        model.setupAnim(twirlingShell, 0.0f, 0.0f, 1.6f, 0.0f, 0.0f);
         VertexConsumer vertexConsumer = source.getBuffer(this.model.renderType(this.getTextureLocation(twirlingShell)));
         model.renderToBuffer(stack, vertexConsumer, i1, OverlayTexture.NO_OVERLAY, 1.0f, 1.0f, 1.0f, 1.0f);
         stack.popPose();

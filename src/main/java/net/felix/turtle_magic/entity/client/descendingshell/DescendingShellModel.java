@@ -7,7 +7,6 @@ import net.minecraft.client.animation.AnimationChannel;
 import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.animation.Keyframe;
 import net.minecraft.client.animation.KeyframeAnimations;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -33,7 +32,7 @@ public class DescendingShellModel<T extends DescendingShellEntity> extends Hiera
         return LayerDefinition.create(meshdefinition, 128, 128);
     }
 
-    public static final AnimationDefinition DESCENDING_SHELL_SPIN = AnimationDefinition.Builder.withLength(0.5f).looping()
+    private final AnimationDefinition DESCENDING_SHELL_SPIN = AnimationDefinition.Builder.withLength(0.5f).looping()
             .addAnimation("Turtle",
                     new AnimationChannel(AnimationChannel.Targets.ROTATION,
                             new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, 0f),

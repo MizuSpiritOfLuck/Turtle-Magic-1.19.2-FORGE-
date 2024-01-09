@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Turtle_Magic_[1.19.2_FORGE].main.iml" filepath="$PROJECT_DIR$/.idea/modules/Turtle_Magic_[1.19.2_FORGE].main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Turtle_Magic_[1.19.2_FORGE].test.iml" filepath="$PROJECT_DIR$/.idea/modules/Turtle_Magic_[1.19.2_FORGE].test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/net.felix.turtle_magic.Turtle_Magic_[1.19.2_FORGE].main.iml" filepath="$PROJECT_DIR$/.idea/modules/net.felix.turtle_magic.Turtle_Magic_[1.19.2_FORGE].main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/net.felix.turtle_magic.Turtle_Magic_[1.19.2_FORGE].test.iml" filepath="$PROJECT_DIR$/.idea/modules/net.felix.turtle_magic.Turtle_Magic_[1.19.2_FORGE].test.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,92 @@
+package net.felix.turtle_magic.entity.custom;
+
+import net.felix.turtle_magic.entity.TMEntityTypes;
+import net.felix.turtle_magic.util.TMMethods;
+import net.felix.turtle_magic.world.TMDamageSource;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.MoveToBlockGoal;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.projectile.AbstractHurtingProjectile;
+import net.minecraft.world.entity.projectile.Fireball;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.BaseFireBlock;
+import net.minecraft.world.phys.BlockHitResult;
+
+public class TwirlingShellEntity extends AbstractHurtingProjectile {
+    LivingEntity summoner;
+
+    public TwirlingShellEntity(EntityType<? extends TwirlingShellEntity> type, Level level) {
+        super(type, level);
+    }
+    public final AnimationState spinAnimationState = new AnimationState();
+    public final AnimationState deathAnimationState = new AnimationState();
+
+
+    public TwirlingShellEntity(Level level, LivingEntity entity) {
+        this(TMEntityTypes.TWIRLING_SHELL.get(), level);
+        this.setSummoner(entity);
+    }
+
+    public TwirlingShellEntity(EntityType<? extends TwirlingShellEntity> type, LivingEntity entity, double d1, double d2, double d3, Level level) {
+        super(type, entity, d1, d2, d3, level);
+        this.setSummoner(entity);
+    }
+
+    public TwirlingShellEntity(EntityType<? extends TwirlingShellEntity> type, LivingEntity entity, double d1, double d2, double d3, double d4, double d5, double d6, Level level) {
+        super(type, d1, d2, d3, d4, d5, d6, level);
+        this.setSummoner(entity);
+    }
+
+    public LivingEntity getSummoner() {
+        return this.summoner;
+    }
+
+    public void setSummoner(LivingEntity summoner) {
+        this.summoner = summoner;
+    }
+
+    @Override
+    public boolean isInvulnerable() {
+        return true;
+    }
+
+    @Override
+    protected void defineSynchedData() { }
+
+    public void tick() {
+        /*if(level.isClientSide()) {
+            this.spinAnimationState.startIfStopped(this.tickCount);
+
+            this.deathAnimationState.startIfStopped(this.tickCount);
+
+            if(this.tickCount == 194) {
+                this.spinAnimationState.stop();
+            }
+        }
+
+        if(this.tickCount >= 200) {
+            this.discard();
+        }
+
+        if (this.hasLimitedLife && --this.limitedLifeTicks <= 0) {
+            this.limitedLifeTicks = 20;
+            this.hurt(DamageSource.STARVE, 1.0F);
+        }*/
+    }
+
+    public Packet<?> getAddEntityPacket() {
+        return new ClientboundAddEntityPacket(this);
+    }
+}

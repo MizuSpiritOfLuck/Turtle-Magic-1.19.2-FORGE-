@@ -1,7 +1,6 @@
 package net.felix.turtle_magic.entity.custom;
 
 import net.felix.turtle_magic.entity.TMEntityTypes;
-import net.felix.turtle_magic.item.TMItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;

@@ -20,15 +20,14 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import software.bernie.geckolib3.GeckoLib;
 
 @Mod(TurtleMagic.MOD_ID)
-public class TurtleMagic
-{
+public class TurtleMagic {
+
     public static final String MOD_ID = "turtle_magic";
 
-    public TurtleMagic()
-    {
+    public TurtleMagic() {
+
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
 
@@ -37,8 +36,6 @@ public class TurtleMagic
         TMEntityTypes.register(modEventBus);
         TMMessages.register();
         TMSounds.register(modEventBus);
-
-        GeckoLib.initialize();
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -49,11 +46,11 @@ public class TurtleMagic
     public void onServerStarting(ServerStartingEvent event) { }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class ClientModEvents
-    {
+    public static class ClientModEvents {
+
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
+        public static void onClientSetup(FMLClientSetupEvent event) {
+
             EntityRenderers.register(TMEntityTypes.DESCENDING_SHELL.get(), DescendingShellRenderer::new);
             EntityRenderers.register(TMEntityTypes.TWIRLING_SHELL.get(), TwirlingShellRenderer::new);
             EntityRenderers.register(TMEntityTypes.SNAPPER_FANG.get(), SnapperFangsRenderer::new);

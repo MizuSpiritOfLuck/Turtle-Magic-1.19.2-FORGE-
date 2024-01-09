@@ -3,13 +3,11 @@ package net.felix.turtle_magic.entity.client.magicturtle;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.felix.turtle_magic.TurtleMagic;
 import net.felix.turtle_magic.entity.custom.MagicTurtle;
-import net.minecraft.client.model.TurtleModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.animal.Turtle;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
