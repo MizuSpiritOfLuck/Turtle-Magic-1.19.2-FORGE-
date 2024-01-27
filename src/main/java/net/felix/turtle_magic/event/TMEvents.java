@@ -8,6 +8,7 @@ import net.felix.turtle_magic.entity.client.descendingshell.DescendingShellModel
 import net.felix.turtle_magic.entity.client.testudoshell.TestudoShellModel;
 import net.felix.turtle_magic.entity.client.twirlingshell.TwirlingShellModel;
 import net.felix.turtle_magic.entity.custom.MagicTurtle;
+import net.felix.turtle_magic.entity.custom.TestudoShellEntity;
 import net.felix.turtle_magic.entity.custom.TwirlingShellEntity;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -27,6 +28,7 @@ public class TMEvents {
             @SubscribeEvent
             public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
                 event.put(TMEntityTypes.MAGIC_TURTLE.get(), MagicTurtle.setAttributes());
+                event.put(TMEntityTypes.TESTUDO.get(), TestudoShellEntity.setAttributes());
             }
 
             @SubscribeEvent

@@ -26,6 +26,7 @@ import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
 
 public class TwirlingShellEntity extends LargeFireball {
     LivingEntity summoner;
@@ -45,15 +46,18 @@ public class TwirlingShellEntity extends LargeFireball {
     public TwirlingShellEntity(Level level, LivingEntity entity, double d1, double d2, double d3, int i1) {
         super(level, entity, d1, d2, d3, i1);
         this.setSummoner(entity);
-        double d0 = Math.sqrt(d1 * d1 + d2 * d2 + d3 * d3);
-        this.xPower = d1 / d0 * 0.1d;
-        this.yPower = 100 /*d2 / d0 * 0.1d*/;
-        this.zPower = d3 / d0 * 0.1d;
+        Vec3 vec3 = entity.getViewVector(1.0F);
+        double d4 = d1 - (this.getX() + vec3.x);
+        double d5 = d2 - (this.getY());
+        double d6 = d3 - (this.getZ() + vec3.z);
+        this.xPower = d4 / 0.1d;
+        this.yPower = d5 / 0.1d;
+        this.zPower = d6 / 0.1d;
     }
 
     @Override
     protected void onHit(HitResult hitResult) {
-        this.discard();
+
     }
 
     @Override
@@ -63,7 +67,7 @@ public class TwirlingShellEntity extends LargeFireball {
 
     @Override
     protected void onHitEntity(EntityHitResult entityHitResult) {
-        this.discard();
+
     }
 
     public LivingEntity getSummoner() {

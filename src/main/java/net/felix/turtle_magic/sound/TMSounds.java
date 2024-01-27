@@ -12,10 +12,8 @@ public class TMSounds {
     public static final DeferredRegister<SoundEvent> SOUNDS =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, TurtleMagic.MOD_ID);
 
-
-    public static final RegistryObject<SoundEvent> EVOCATION_BELL_RING =
-            registerSounds("evocation_bell_ring");
-
+    public static final RegistryObject<SoundEvent> TESTUDO_SHELL_BREAK =
+            registerSounds("testudo_shell_break");
 
     public static RegistryObject<SoundEvent> registerSounds(String name) {
         return SOUNDS.register(name, () -> new SoundEvent(new ResourceLocation(TurtleMagic.MOD_ID, name)));
