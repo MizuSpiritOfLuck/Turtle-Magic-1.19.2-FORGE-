@@ -107,7 +107,7 @@ public class TurtleStaffBase extends Item {
             }
 
             if (mode == 3 && mode3) {
-                TwirlingShellEntity twirlingShell = new TwirlingShellEntity(level, player, clipWithDistance(player, level, 100).x, clipWithDistance(player, level, 100).y, clipWithDistance(player, level, 100).z,  5);
+                TwirlingShellEntity twirlingShell = new TwirlingShellEntity(level, player, clipWithDistance(player, level, 20));
                 level.addFreshEntity(twirlingShell);
             }
 

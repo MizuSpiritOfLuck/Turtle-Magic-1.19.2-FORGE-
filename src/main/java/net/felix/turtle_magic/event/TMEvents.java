@@ -29,6 +29,7 @@ public class TMEvents {
             public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
                 event.put(TMEntityTypes.MAGIC_TURTLE.get(), MagicTurtle.setAttributes());
                 event.put(TMEntityTypes.TESTUDO.get(), TestudoShellEntity.setAttributes());
+                event.put(TMEntityTypes.TWIRLING_SHELL.get(), TwirlingShellEntity.setAttributes());
             }
 
             @SubscribeEvent

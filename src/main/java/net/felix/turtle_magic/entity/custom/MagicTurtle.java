@@ -178,7 +178,7 @@ public class MagicTurtle extends Turtle {
     }
 
     public static AttributeSupplier setAttributes() {
-        return Monster.createMonsterAttributes()
+        return LivingEntity.createLivingAttributes()
                 .add(Attributes.MAX_HEALTH, 30.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.25D)
                 .build();
