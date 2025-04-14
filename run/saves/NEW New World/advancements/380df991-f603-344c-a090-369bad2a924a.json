@@ -1,0 +1,11 @@
+{
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:frozen_river": "2025-03-12 17:08:57 -0500",
+      "minecraft:snowy_plains": "2025-03-12 17:04:08 -0500",
+      "minecraft:snowy_beach": "2025-03-12 17:09:46 -0500"
+    },
+    "done": false
+  },
+  "DataVersion": 3120
+}
